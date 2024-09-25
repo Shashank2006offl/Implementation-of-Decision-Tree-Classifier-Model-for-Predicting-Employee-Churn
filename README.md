@@ -8,68 +8,58 @@ To write a program to implement the Decision Tree Classifier Model for Predictin
 2. Anaconda – Python 3.7 Installation / Jupyter notebook
 
 ## Algorithm
-
-step1 .Import pandas module and import the required data set.
-
-step 2.Find the null values and count them.
-
-step 3.Count number of left values.
-
-step 4.From sklearn import LabelEncoder to convert string values to numerical values.
-
-step 5.From sklearn.model_selection import train_test_split.
-
-step 6.Assign the train dataset and test dataset.
-
-step 7.From sklearn.tree import DecisionTreeClassifier.
-
-step 8.Use criteria as entropy.
-
-step 9.From sklearn import metrics.
-
-step 10.Find the accuracy of our model and predict the require values.
+1. Start the program
+2. attach the given data file
+3. now find the satisfaction level of employee data
+4. find the accuracy and new predict value
+5.end the program
 
 ## Program:
 ```
-Program to implement the Decision Tree Classifier Model for Predicting Employee Churn.
-Developed by: Shashank
-RegisterNumber: 212223230205 
 
+Program to implement the Decision Tree Classifier Model for Predicting Employee Churn.
+Developed by: RAHUL VIJAY V
+RegisterNumber: 212223040164
+```
+
+```
 import pandas as pd
-data = pd.read_csv("Employee.csv")
-data
+data=pd.read_csv("C:/Users/admin/Downloads/Employee.csv")
 data.head()
 data.info()
 data.isnull().sum()
-data["left"].value_counts
+data["left"].value_counts()
 from sklearn.preprocessing import LabelEncoder
-le= LabelEncoder()
+le=LabelEncoder()
 data["salary"]=le.fit_transform(data["salary"])
 data.head()
-x= data[["satisfaction_level","last_evaluation","number_project","average_montly_hours","time_spend_company","Work_accident","promotion_last_5years","salary"]]
+x=data[["satisfaction_level","last_evaluation","number_project","average_montly_hours","time_spend_company","Work_accident","promotion_last_5years","salary"]]
 x.head()
 y=data["left"]
 from sklearn.model_selection import train_test_split
-x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.2,random_state = 100)
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2,random_state=100)
 from sklearn.tree import DecisionTreeClassifier
-dt = DecisionTreeClassifier(criterion="entropy")
+dt=DecisionTreeClassifier(criterion="entropy")
 dt.fit(x_train,y_train)
-y_pred = dt.predict(x_test)
+y_pred=dt.predict(x_test)
 from sklearn import metrics
-accuracy = metrics.accuracy_score(y_test,y_pred)
+accuracy=metrics.accuracy_score(y_test,y_pred)
 accuracy
 dt.predict([[0.5,0.8,9,260,6,0,1,2]])
+
 ```
 
 ## Output:
-Data:
-![Screenshot 2024-09-13 142258](https://github.com/user-attachments/assets/23e43e13-5487-4d23-8500-bc16448a493a)
+![Screenshot 2024-09-20 103740](https://github.com/user-attachments/assets/9d88a883-db85-4036-b3f8-3f27ce8dab33)
 
- Accuray:
- ![image](https://github.com/user-attachments/assets/6bfaae2a-fe34-4383-9682-4b339365c15f)
+## Accuracy:
+![Screenshot 2024-09-20 103754](https://github.com/user-attachments/assets/cf464349-aa04-443d-a466-26e214d95951)
 
-Predict:
-![image](https://github.com/user-attachments/assets/8d42ee5f-f62f-4c32-96c8-03a3148aeda8)
+## New predicted :
+![Screenshot 2024-09-20 103810](https://github.com/user-attachments/assets/ce36cfee-0ddf-4d82-be97-ad7028eccfb5)
+
+
+
 
 ## Result:
 Thus the program to implement the  Decision Tree Classifier Model for Predicting Employee Churn is written and verified using python programming.
